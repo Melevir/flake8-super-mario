@@ -23,6 +23,7 @@ setup(
     name=package_name,
     description='A flake8 plugin with super_mario specific validations',
     long_description=get_long_description(),
+    long_description_content_type='text/markdown',
     classifiers=[
         'Environment :: Console',
         'Framework :: Flake8',
