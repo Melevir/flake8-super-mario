@@ -106,7 +106,10 @@ class SuperMarionChecker:
                 yield (
                     pipe_funcdef.lineno,
                     pipe_funcdef.col_offset,
-                    f'SME004 Pipe {pipe_funcdef.name} is of process type and is not pure ({", ".join(errors)})',
+                    (
+                        f'SME004 Pipe {pipe_funcdef.name} is of process type and is not '
+                        f'pure ({", ".join(errors)})'
+                    ),
                 )
 
     def run(self) -> Generator[Tuple[int, int, str, type], None, None]:
