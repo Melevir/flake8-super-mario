@@ -11,7 +11,7 @@ def get_all_pipeline_classes(
 
     pipeline_classes: List[ast.ClassDef] = []
     for classdef_node in [n for n in ast.walk(ast_tree) if isinstance(n, ast.ClassDef)]:
-        bases_names = [a.id for a in classdef_node.bases]
+        bases_names = [a.id for a in classdef_node.bases if isinstance(a, ast.Name)]
         if base_pipeline_class_name in bases_names:
             pipeline_classes.append(classdef_node)
     return pipeline_classes
