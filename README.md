@@ -1,5 +1,11 @@
 # flake8-super-mario
 
+[![Build Status](https://travis-ci.org/Melevir/flake8-super-mario.svg?branch=master)](https://travis-ci.org/Melevir/flake8-super-mario)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ea573c4743dbabd6debe/maintainability)](https://codeclimate.com/github/Melevir/flake8-super-mario/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ea573c4743dbabd6debe/test_coverage)](https://codeclimate.com/github/Melevir/flake8-super-mario/test_coverage)
+[![PyPI version](https://badge.fury.io/py/flake8-super-mario.svg)](https://badge.fury.io/py/flake8-super-mario)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/flake8-super-mario)
+
 An extension for flake8 with super_mario specific validations.
 
 [Mario](https://github.com/best-doctor/Mario) is a framework for business
