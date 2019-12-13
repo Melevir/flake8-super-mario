@@ -6,11 +6,13 @@ from cognitive_complexity.api import get_cognitive_complexity
 from mr_proper.public_api import is_function_pure
 
 from flake8_super_mario import __version__ as version
-from utils._ast import get_all_pipeline_classes, get_all_pipes_from, has_any_decorator
-from utils.complexity import get_cyclomatic_complexity
+from flake8_super_mario.utils._ast import (
+    get_all_pipeline_classes, get_all_pipes_from, has_any_decorator,
+)
+from flake8_super_mario.utils.complexity import get_cyclomatic_complexity
 
 
-class CognitiveComplexityChecker:
+class SuperMarionChecker:
     IO_DECORATOR_NAMES = {'input_pipe', 'output_pipe'}
     PROCESS_DECORATOR_NAME = 'process_pipe'
     ALLOWED_DECORATOR_NAMES = {*IO_DECORATOR_NAMES, PROCESS_DECORATOR_NAME}
