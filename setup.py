@@ -39,7 +39,13 @@ setup(
     version=get_version(),
     author='Ilya Lebedev',
     author_email='melevir@gmail.com',
-    install_requires=['setuptools'],
+    install_requires=[
+        'setuptools'
+        'cognitive-complexity>=0.0.4',
+        'mr-proper>=0.0.3',
+        'mccabe>=0.6.1',
+
+    ],
     entry_points={
         'flake8.extension': [
             'SME = flake8_super_mario.checker:SuperMarionChecker',
