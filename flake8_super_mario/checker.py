@@ -101,6 +101,8 @@ class SuperMarionChecker:
         ast_tree: ast.Module,
     ) -> Generator[Tuple[int, int, str], None, None]:
         for pipe_funcdef in get_all_pipes_from(pipeline_classdef):
+            if not has_any_decorator(pipe_funcdef, {cls.PROCESS_DECORATOR_NAME}):
+                continue
             is_pure, errors = is_function_pure(pipe_funcdef, ast_tree, with_errors=True)
             if not is_pure:
                 yield (
