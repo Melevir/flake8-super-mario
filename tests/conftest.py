@@ -14,6 +14,6 @@ def run_validator_for_test_file(filename: str) -> List:
     with open(test_file_path, 'r') as file_handler:
         raw_content = file_handler.read()
     tree = ast.parse(raw_content)
-    checker = SuperMarionChecker(tree=tree, filename=filename)
+    checker = SuperMarionChecker(tree=tree, filename=test_file_path)
 
     return list(checker.run())

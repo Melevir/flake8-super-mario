@@ -42,7 +42,7 @@ setup(
     install_requires=[
         'setuptools'
         'cognitive-complexity>=0.0.4',
-        'mr-proper>=0.0.3',
+        'mr-proper>=0.0.4',
         'mccabe>=0.6.1',
 
     ],

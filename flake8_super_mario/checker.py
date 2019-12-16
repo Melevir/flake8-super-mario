@@ -4,6 +4,7 @@ from typing import Generator, Tuple, Callable, List
 
 from cognitive_complexity.api import get_cognitive_complexity
 from mr_proper.public_api import is_function_pure
+from mr_proper.utils.ast import set_parents
 
 from flake8_super_mario import __version__ as version
 from flake8_super_mario.utils._ast import (
@@ -99,11 +100,20 @@ class SuperMarionChecker:
         cls,
         pipeline_classdef: ast.ClassDef,
         ast_tree: ast.Module,
+        pyfilepath: str,
     ) -> Generator[Tuple[int, int, str], None, None]:
         for pipe_funcdef in get_all_pipes_from(pipeline_classdef):
             if not has_any_decorator(pipe_funcdef, {cls.PROCESS_DECORATOR_NAME}):
                 continue
-            is_pure, errors = is_function_pure(pipe_funcdef, ast_tree, with_errors=True)
+            set_parents(ast_tree)
+            is_pure, errors = is_function_pure(
+                pipe_funcdef,
+                ast_tree,
+                pyfilepath=pyfilepath,
+                with_errors=True,
+                recursive=True,
+            )
+            print(pipe_funcdef.name, is_pure)
             if not is_pure:
                 yield (
                     pipe_funcdef.lineno,
@@ -125,6 +135,7 @@ class SuperMarionChecker:
             partial(
                 self.check_process_pipes_are_pure,
                 ast_tree=self.tree,
+                pyfilepath=self.filename,
             ),
         ]
         for pipeline_classdef in get_all_pipeline_classes(self.tree):
