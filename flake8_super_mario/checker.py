@@ -113,7 +113,6 @@ class SuperMarionChecker:
                 with_errors=True,
                 recursive=True,
             )
-            print(pipe_funcdef.name, is_pure)
             if not is_pure:
                 yield (
                     pipe_funcdef.lineno,
