@@ -17,3 +17,8 @@ def run_validator_for_test_file(filename: str) -> List:
     checker = SuperMarionChecker(tree=tree, filename=test_file_path)
 
     return list(checker.run())
+
+
+def non_pure_function_from_another_module(a):
+    print(a)
+    return a

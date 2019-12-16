@@ -10,4 +10,4 @@ def test_errors_for_not_ok_pipes():
 
 
 def test_errors_for_not_pure_pipes():
-    assert len(run_validator_for_test_file('non_pure_pipeline.py')) == 1
+    assert len(run_validator_for_test_file('non_pure_pipeline.py')) == 2
