@@ -40,7 +40,7 @@ setup(
     author='Ilya Lebedev',
     author_email='melevir@gmail.com',
     install_requires=[
-        'setuptools'
+        'setuptools',
         'cognitive-complexity>=0.0.4',
         'mr-proper>=0.0.4',
         'mccabe>=0.6.1',
